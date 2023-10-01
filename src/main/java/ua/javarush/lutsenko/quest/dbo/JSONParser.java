@@ -8,6 +8,7 @@ import ua.javarush.lutsenko.quest.entity.Question;
 import ua.javarush.lutsenko.quest.entity.Quit;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,9 +17,11 @@ import java.util.Properties;
 public class JSONParser implements DBI {
     @Override
     public Map<Integer, PartI> parse(Properties properties) {
-        File fileQuestion = new File(properties.getProperty("linkQuestions"));
-        File fileQuites = new File(properties.getProperty("linkQuits"));
-        File fileCondition = new File(properties.getProperty("linkCondition"));
+        ClassLoader classLoader = JSONParser.class.getClassLoader();
+
+        InputStream fileCondition = classLoader.getResourceAsStream(properties.getProperty("linkCondition"));
+        InputStream fileQuestion = classLoader.getResourceAsStream(properties.getProperty("linkQuestions"));
+        InputStream fileQuites = classLoader.getResourceAsStream(properties.getProperty("linkQuits"));
 
         ObjectMapper objectMapper = new ObjectMapper();
         List<Question> questions = null;
@@ -43,7 +46,7 @@ public class JSONParser implements DBI {
                     }
             );
         } catch (Exception e) {
-            e.printStackTrace();
+            return null;
         }
 
         Map<Integer, PartI> map = new HashMap<>();

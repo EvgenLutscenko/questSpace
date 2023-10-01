@@ -1,6 +1,7 @@
 package ua.javarush.lutsenko.quest.repo;
 
 
+import ua.javarush.lutsenko.quest.entity.Condition;
 import ua.javarush.lutsenko.quest.entity.PartI;
 import ua.javarush.lutsenko.quest.entity.Question;
 import ua.javarush.lutsenko.quest.entity.Quit;
@@ -57,7 +58,13 @@ public class StorageUtils {
 
     public static RepoProblem check(){
         int temp;
-        if((temp = checkIsAllPartsHere()) != PartsStorage.parts.size() - 1){
+        if(PartsStorage.parts == null){
+            return new RepoProblem("You have a problem with path to one of json files, check it please");
+        }else if(!(getPart(0) instanceof Condition)){
+            return new RepoProblem("Questions start from 1 node, edit the questions.json file.");
+        }else if(get().keySet().iterator().next() < 0){
+            return new RepoProblem("Questions start from 1 node, edit the questions.json file.");
+        } else if((temp = checkIsAllPartsHere()) != PartsStorage.parts.size() - 1){
             return new RepoProblem("Json file is not available: you have a mistake in structure: part number - " + (temp+1) + " isn't in the list");
         }else if ((temp = checkAnswersReference()) != PartsStorage.parts.size()){
             return new RepoProblem("Json file is not available: you have a mistake in structure of Question: reference in question number - " + (temp+1) + " isn't in the list");
