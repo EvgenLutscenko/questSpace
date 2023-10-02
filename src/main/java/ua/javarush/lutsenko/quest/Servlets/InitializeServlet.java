@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import ua.javarush.lutsenko.quest.dbo.DBI;
 import ua.javarush.lutsenko.quest.dbo.JSONParser;
 import ua.javarush.lutsenko.quest.entity.PartI;
 import ua.javarush.lutsenko.quest.problemsEntity.RepoProblem;
@@ -38,7 +39,7 @@ public class InitializeServlet extends HttpServlet {
     }
 
     private Map<Integer, PartI> getRepo(){
-        JSONParser parser = new JSONParser();
+        DBI parser = new JSONParser();
         Properties properties = new Properties();
 
         try {
