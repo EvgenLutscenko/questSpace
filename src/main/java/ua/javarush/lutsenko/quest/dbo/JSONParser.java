@@ -7,47 +7,60 @@ import ua.javarush.lutsenko.quest.entity.PartI;
 import ua.javarush.lutsenko.quest.entity.Question;
 import ua.javarush.lutsenko.quest.entity.Quit;
 
-import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+
+//Class JSONParser that implement DBI interface use to parse data from json files store in resource directory
+//I have implemented try() catch method, if we catch some problem, we'd return null instead of Map
+//if we parse all data successfully we collect all in the Map(key - number of question, value - Question object)
+
 public class JSONParser implements DBI {
     @Override
     public Map<Integer, PartI> parse(Properties properties) {
         ClassLoader classLoader = JSONParser.class.getClassLoader();
-
-        InputStream fileCondition = classLoader.getResourceAsStream(properties.getProperty("linkCondition"));
-        InputStream fileQuestion = classLoader.getResourceAsStream(properties.getProperty("linkQuestions"));
-        InputStream fileQuites = classLoader.getResourceAsStream(properties.getProperty("linkQuits"));
-
         ObjectMapper objectMapper = new ObjectMapper();
-        List<Question> questions = null;
-        List<Quit> quites = null;
-        Condition condition = null;
 
-        try {
-            questions = objectMapper.readValue(
-                    fileQuestion,
-                    new TypeReference<>() {
-                    }
-            );
-            quites = objectMapper.readValue(
-                    fileQuites,
-                    new TypeReference<>() {
-                    }
-            );
+        List<Question> questions;
+        List<Quit> quites;
+        Condition condition;
 
-            condition = objectMapper.readValue(
-                    fileCondition,
-                    new TypeReference<>() {
-                    }
-            );
-        } catch (Exception e) {
+        try (InputStream fileCondition = classLoader.getResourceAsStream(properties.getProperty("linkCondition"));
+             InputStream fileQuestion = classLoader.getResourceAsStream(properties.getProperty("linkQuestions"));
+             InputStream fileQuites = classLoader.getResourceAsStream(properties.getProperty("linkQuits"))){
+
+
+            try {
+                questions = objectMapper.readValue(
+                        fileQuestion,
+                        new TypeReference<>() {
+                        }
+                );
+                quites = objectMapper.readValue(
+                        fileQuites,
+                        new TypeReference<>() {
+                        }
+                );
+
+                condition = objectMapper.readValue(
+                        fileCondition,
+                        new TypeReference<>() {
+                        }
+                );
+            } catch (Exception e) {
+                return null;
+            }
+
+
+        } catch (IOException e) {
             return null;
         }
+
+
 
         Map<Integer, PartI> map = new HashMap<>();
         if(condition != null){

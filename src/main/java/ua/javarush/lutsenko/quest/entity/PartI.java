@@ -1,5 +1,5 @@
 package ua.javarush.lutsenko.quest.entity;
 
 public interface PartI {
-//интерфес для описывания сущностей Question, Quit
+//interface for describing entity Question, Condition, Quit
 }

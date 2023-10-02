@@ -12,12 +12,13 @@ import ua.javarush.lutsenko.quest.entity.PartI;
 import ua.javarush.lutsenko.quest.problemsEntity.RepoProblem;
 import ua.javarush.lutsenko.quest.repo.StorageUtils;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
 import java.util.Properties;
 
+
+//Servlet fot initialize storage, session and else
 @WebServlet(name = "InitializeServlet", value = "/initialize-servlet")
 public class InitializeServlet extends HttpServlet {
     @Override

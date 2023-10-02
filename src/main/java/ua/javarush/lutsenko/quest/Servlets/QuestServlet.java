@@ -16,6 +16,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+
+//Servlet that is main for quest
 @WebServlet(name = "QuestServlet", value = "/quest-servlet")
 public class QuestServlet extends HttpServlet {
     @Override
@@ -45,7 +47,7 @@ public class QuestServlet extends HttpServlet {
         }else {
             if(((Quit)part).getExodus() == Exodus.NEGATIVE){
                 request.getRequestDispatcher("WEB-INF/bad_quit.jsp").forward(request, response);
-            }else {
+            }else if(((Quit)part).getExodus() == Exodus.POSITIVE) {
                 request.getRequestDispatcher("WEB-INF/good_quit.jsp").forward(request, response);
             }
         }

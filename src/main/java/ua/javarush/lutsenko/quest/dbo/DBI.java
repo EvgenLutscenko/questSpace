@@ -6,7 +6,7 @@ import ua.javarush.lutsenko.quest.entity.PartI;
 import java.util.Map;
 import java.util.Properties;
 
-//interface для описывания подстановки в инициализацию типа bd, у нас json файл
+//interface for describing the method of parsing from a database
 public interface DBI {
     Map<Integer, PartI> parse(Properties properties);
 }

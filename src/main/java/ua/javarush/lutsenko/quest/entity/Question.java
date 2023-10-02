@@ -5,6 +5,8 @@ import lombok.Data;
 
 import java.util.List;
 
+
+//Question class that implement PartI interface use to store question from json (number - question queue number)
 @Data
 @AllArgsConstructor
 public class Question implements PartI{
