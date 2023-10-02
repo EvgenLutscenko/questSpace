@@ -1,4 +1,12 @@
-You need to run it with tomcat 10, 
+JSP/JSTL tutorial project Quest
+
+Technologies:
+     JDK-19
+     Jakarta Expression Language API » 5.0.0
+     Project Lombok 1.18.30
+     tomcat 10
+
+     
 leave / in Deployment -> Application context
 In Server -> URL leave http://localhost:8080/
 
