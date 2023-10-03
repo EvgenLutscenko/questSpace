@@ -2,14 +2,14 @@
 
 ## Technologies:
 - **IntelliJ IDEA**
-- **Maven**
+- **Maven 3.2.2**
+- **jakarta servlet 5.0.0**
 - **Java version 19.0.1**
-- **Tomcat 10.1.12**
+- **Tomcat 10.1.13**
 - **JSP**
 - **JSTL**
 - **HTML**
 - **CSS**
-- **Bootstrap**
 - **JUnit 5**
 
 ## Deployment Instructions:
