@@ -1,4 +1,4 @@
-package ua.javarush.lutsenko.quest.Servlets;
+package ua.javarush.lutsenko.quest.servlets;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpSession;
 import ua.javarush.lutsenko.quest.dbo.DBI;
 import ua.javarush.lutsenko.quest.dbo.JSONParser;
 import ua.javarush.lutsenko.quest.entity.PartI;
-import ua.javarush.lutsenko.quest.problemsEntity.RepoProblem;
+import ua.javarush.lutsenko.quest.errors.RepoProblem;
 import ua.javarush.lutsenko.quest.repo.StorageUtils;
 
 import java.io.IOException;

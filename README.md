@@ -1,45 +1,52 @@
-JSP/JSTL tutorial project Quest
+# JSP/JSTL Tutorial Project Quest
 
-Technologies:
-     JDK-19
-     Jakarta Expression Language API » 5.0.0
-     Project Lombok 1.18.30
-     tomcat 10
+## Technologies:
+- **IntelliJ IDEA**
+- **Maven**
+- **Java version 18.0.1**
+- **Tomcat 10.1.12**
+- **JSP**
+- **JSTL**
+- **HTML**
+- **CSS**
+- **Bootstrap**
+- **JUnit 5**
 
-     
-leave / in Deployment -> Application context
-In Server -> URL leave http://localhost:8080/
+## Deployment Instructions:
+- Leave `/` in the Deployment section -> Application context.
+- In the Server section -> URL, use `http://localhost:8080/`.
 
-WEB-INF stores a properties file, which contains links to each of the json configuration files -> src/main/webapp/WEB-INF/jsonStor/json.properties
-Json files are packed into resources - this is a file
-condition.json – storing the greeting
-questions.json – storing questions
-quits.json – storing exits from the game (win, loss)
+## Project Structure:
+- The `WEB-INF` directory stores a properties file, which contains links to each of the JSON configuration files: `src/main/webapp/WEB-INF/jsonStor/json.properties`.
+- JSON files are packed into resources. The files include:
+  - `condition.json`: Stores the game condition.
+  - `questions.json`: Stores questions.
+  - `quits.json`: Stores exits from the game (win, loss).
 
-questions and outputs are written to objects
+## JSON File Structure:
+JSON files are structured as follows:
+```json
 {
-  "condition": "условие"
+  "condition": "condition",
   "questions": [
-    "question 1"
+    "question 1",
     "question 2"
   ],
   "answers": [
-    int- number of the question to which the answer to “question 1” leads,
-    int- number of the question to which the answer to “question 2” leads,
+    int - number of the question to which the answer to "question 1" leads,
+    int - number of the question to which the answer to "question 2" leads
   ],
-  "number": int- question number
+  "number": int - question number
 }
-It is advisable to configure json files in the form of a tree, I made the tree going to the root node in order - (left - right)
-						          1
-			             /	|  \
-				          5   4   2
-				        /			      \
-				       6				      3
-			       /  \
-            9    7
-			    /		    \
-		    10         8
+```
+## Installation:
 
-(This is an example)
-The main thing is to ask 1 question with number 1 (no lower, no more)
+### Install Dependencies:
 
+```bashbash
+npm install
+```
+
+```bash
+npm run start
+```

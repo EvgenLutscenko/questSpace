@@ -2,7 +2,7 @@ package ua.javarush.lutsenko.quest.repo;
 
 
 import ua.javarush.lutsenko.quest.entity.PartI;
-import ua.javarush.lutsenko.quest.problemsEntity.RepoProblem;
+import ua.javarush.lutsenko.quest.errors.RepoProblem;
 import ua.javarush.lutsenko.quest.repo.RepoCheckers.RepoProblemChecker;
 
 import java.util.Map;

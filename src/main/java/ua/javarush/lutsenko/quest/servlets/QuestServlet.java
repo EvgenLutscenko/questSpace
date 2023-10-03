@@ -1,4 +1,4 @@
-package ua.javarush.lutsenko.quest.Servlets;
+package ua.javarush.lutsenko.quest.servlets;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

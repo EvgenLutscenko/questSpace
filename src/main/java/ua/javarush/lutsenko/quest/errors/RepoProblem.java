@@ -1,4 +1,4 @@
-package ua.javarush.lutsenko.quest.problemsEntity;
+package ua.javarush.lutsenko.quest.errors;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -5,7 +5,7 @@ import ua.javarush.lutsenko.quest.entity.Condition;
 import ua.javarush.lutsenko.quest.entity.PartI;
 import ua.javarush.lutsenko.quest.entity.Question;
 import ua.javarush.lutsenko.quest.entity.Quit;
-import ua.javarush.lutsenko.quest.problemsEntity.RepoProblem;
+import ua.javarush.lutsenko.quest.errors.RepoProblem;
 
 import java.util.Map;
 
