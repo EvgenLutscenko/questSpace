@@ -3,7 +3,7 @@
 ## Technologies:
 - **IntelliJ IDEA**
 - **Maven**
-- **Java version 18.0.1**
+- **Java version 19.0.1**
 - **Tomcat 10.1.12**
 - **JSP**
 - **JSTL**
