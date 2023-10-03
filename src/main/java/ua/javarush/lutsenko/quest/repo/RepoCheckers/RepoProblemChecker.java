@@ -30,38 +30,44 @@ public class RepoProblemChecker implements RCI{
 
     //    check (private List<Integer> answers) in Questions
     private int checkAnswersReference(){
-        int temp = 0;
+        boolean temp = true;
+        int tempCounter = 0;
 
         for(PartI part : map.values()){
             if(part instanceof Question){
                 for (Integer answer : ((Question) part).getAnswers()){
                     if(answer < 1 || answer > map.size()){
+                        temp = false;
                         break;
                     }
                 }
             }
-            temp++;
+            if(temp){
+               tempCounter++;
+            }else {
+                break;
+            }
         }
 
-        return temp;
+        return tempCounter;
     }
 
     public RepoProblem check(){
         int temp;
-        if(map == null){
-            return new RepoProblem("You have a problem with path to one of json files, check it please");
+        if(map == null || map.isEmpty()){
+            return new RepoProblem("You have a problem with path to one of JSON files, check it please");
+        }else if(map.get(0) == null){
+            return new RepoProblem("JSON file is not available: you don't have a condition");
         }else if(!(map.get(0) instanceof Condition)){
             return new RepoProblem("Questions start from 1 node, edit the questions.json file.");
         }else if(map.keySet().iterator().next() < 0){
             return new RepoProblem("Questions start from 1 node, edit the questions.json file.");
         } else if((temp = checkIsAllPartsHere()) != map.size() - 1){
-            return new RepoProblem("Json file is not available: you have a mistake in structure: part number - " + (temp+1) + " isn't in the list");
+            return new RepoProblem("JSON file is not available: you have a mistake in structure: part number - " + (temp+1) + " isn't in the list");
         }else if ((temp = checkAnswersReference()) != map.size()){
-            return new RepoProblem("Json file is not available: you have a mistake in structure of Question: reference in question number - " + (temp+1) + " isn't in the list");
-        }else if(map.get(0) == null){
-            return new RepoProblem("Json file is not available: you don't have condition");
+            return new RepoProblem("JSON file is not available: you have a mistake in structure of Question: reference in question number - " + (temp) + " isn't in the list");
         }else if(map.get(1) instanceof Quit){
-            return new RepoProblem("Json file is not available: 1 level can't be quit");
+            return new RepoProblem("JSON file is not available: 1 level can't be quit");
         }
 
         return null;
