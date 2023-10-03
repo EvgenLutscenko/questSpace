@@ -33,10 +33,10 @@ JSON files are structured as follows:
     "question 2"
   ],
   "answers": [
-    int - number of the question to which the answer to "question 1" leads,
-    int - number of the question to which the answer to "question 2" leads
+    "int - number of the question to which the answer to 'question 1' leads",
+    "int - number of the question to which the answer to 'question 2' leads"
   ],
-  "number": int - question number
+  "number": "int - question number"
 }
 ```
 ## Installation:
